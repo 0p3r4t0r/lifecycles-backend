@@ -12,18 +12,20 @@ REQUIREMENTS_DOT_TXT=requirements.txt
 
 
 # START: HELPER FUNCTIONS ===========================================
-activate_venv () {
+activate_venv() {
     source $VENV_PATH/bin/activate
 }
 
-create_venv () {
+create_venv() {
     python3 -m venv $VENV_PATH
     activate_venv
+}
 
+update_venv() {
     pip install --upgrade pip
 }
 
-install_dependencies () {
+install_dependencies() {
    pip install -r $REQUIREMENTS_DOT_TXT 
 }
 
@@ -38,5 +40,6 @@ if [ ! -d $VENV_PATH ]; then
     create_venv
 fi
 
+update_venv
 activate_venv
 install_dependencies

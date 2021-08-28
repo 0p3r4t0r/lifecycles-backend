@@ -46,6 +46,7 @@ INSTALLED_APPS = [
     'rest_framework',
 
     # Local
+    'accounts',
     'fitness',
 ]
 
@@ -89,6 +90,9 @@ DATABASES = {
     }
 }
 
+# Customer User model
+# https://docs.djangoproject.com/en/3.2/topics/auth/customizing/#using-a-custom-user-model-when-starting-a-project
+AUTH_USER_MODEL = 'accounts.User'
 
 # Password validation
 # https://docs.djangoproject.com/en/3.2/ref/settings/#auth-password-validators

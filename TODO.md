@@ -1,4 +1,11 @@
+# Backend
+- [ ] Create goals app
+ - [ ] Checkboxes for things you did
+ - [ ] Tracking goals over time?
+        (daily, weekly, monthly etc)
+
 - [ ] Deploy with AWS Lightsail
 
-- [ ] Create habits app
- - [ ] Checkboxes for things you did
+- 
+
+- [ ] Start Flutter project

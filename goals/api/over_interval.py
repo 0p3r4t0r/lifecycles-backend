@@ -1,16 +1,16 @@
-from goals.models import Daily
+from goals.models import OverInterval
 from rest_framework import serializers
 from rest_framework import viewsets, permissions
 
 
 class Serializer(serializers.HyperlinkedModelSerializer):
     class Meta:
-        model = Daily
-        fields = ['goal', 'done']
+        model = OverInterval
+        fields = ['name', 'points', 'times', 'days']
 
 
 class Viewset(viewsets.ModelViewSet):
     serializer_class = Serializer
     permission_classes =[ permissions.IsAuthenticated ]
-    queryset = Daily.objects.all().order_by('goal.name')
+    queryset = OverInterval.objects.all().order_by('name')
 

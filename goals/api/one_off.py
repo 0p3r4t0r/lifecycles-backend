@@ -1,16 +1,16 @@
-from goals.models import Goal
+from goals.models import OneOff
 from rest_framework import serializers
 from rest_framework import viewsets, permissions
 
 
 class Serializer(serializers.HyperlinkedModelSerializer):
     class Meta:
-        model = Goal
+        model = OneOff
         fields = ['name', 'points']
 
 
 class Viewset(viewsets.ModelViewSet):
     serializer_class = Serializer
     permission_classes =[ permissions.IsAuthenticated ]
-    queryset = Goal.objects.all().order_by('name')
+    queryset = OneOff.objects.all().order_by('name')
 

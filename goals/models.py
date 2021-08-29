@@ -1,6 +1,7 @@
 from django.core.validators import MaxValueValidator, MinValueValidator
 from django.db import models
 from accounts.models import User
+from lifeCycles.models import TimeStampMixin
 
 
 class Goal(models.Model):
@@ -17,18 +18,18 @@ class Goal(models.Model):
     ])
 
 
-class OneOff(Goal):
-    """Achieved once and then forgotten."""
+class OneOff(Goal, TimeStampMixin):
+    """Achieve once"""
     completed_at = models.DateTimeField(blank=True, null=True)
 
 
-class OverInterval(Goal):
-    """Achieved n times over a period of t time."""
+class OverInterval(Goal, TimeStampMixin):
+    """Achieve n times over a period of t time."""
     class Interval(models.IntegerChoices):
         DAILY = 1
         WEEKLY = 7 
 
-    times = models.IntegerField(default=1, validators=[MinValueValidator(1)])
+    count_to_complete = models.IntegerField(default=1, validators=[MinValueValidator(1)])
     interval_in_days = models.IntegerField(choices=Interval.choices)
 
 

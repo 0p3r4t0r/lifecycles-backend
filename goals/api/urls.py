@@ -6,8 +6,8 @@ from rest_framework import routers
 
 
 router = routers.DefaultRouter()
-router.register(r'goal', one_off.Viewset)
-router.register(r'daily', over_interval.Viewset)
+router.register(r'one-off', one_off.Viewset)
+router.register(r'over-interval', over_interval.Viewset)
 
 app_name = GoalsConfig.name
 urlpatterns = [

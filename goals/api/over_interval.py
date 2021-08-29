@@ -9,19 +9,16 @@ class Serializer(serializers.HyperlinkedModelSerializer):
         model = OverInterval
         fields = ['name', 'points', 'count_to_complete', 'interval_in_days']
 
-    def create(self, validated_data):
-        validated_data['user_id'] = self._context['request'].user.id
-        return super().create(validated_data)
-
 
 class Viewset(viewsets.ModelViewSet):
     serializer_class = Serializer
     permission_classes = [permissions.IsAuthenticated]
-    queryset = OverInterval.objects.all().order_by('created_at')
+    queryset = OverInterval.objects.all()
 
-    def list(self, request):
-        queryset = (OverInterval.objects
-            .filter(user_id=request.user.id)
-            .order_by('created_at'))
-        serializer = Serializer(queryset, many=True)
-        return Response(serializer.data)
+    def get_queryset(self):
+        user = self.request.user
+        return OverInterval.objects.filter(user=user)
+
+    def perform_create(self, serializer):
+        user = self.request.user
+        serializer.save(user_id=user.id)

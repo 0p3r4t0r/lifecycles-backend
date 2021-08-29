@@ -24,7 +24,7 @@ class OneOff(Goal, TimeStampMixin):
 
 
 class OverInterval(Goal, TimeStampMixin):
-    """Achieve n times over a period of t time."""
+    """Achieve n times over an interval of t time."""
     class Interval(models.IntegerChoices):
         DAILY = 1
         WEEKLY = 7 
@@ -35,5 +35,6 @@ class OverInterval(Goal, TimeStampMixin):
 
 class OverIntervalCompletion(models.Model):
     """Track the completion times of  goals."""
+    user = models.ForeignKey(User, models.CASCADE)
     over_interval = models.ForeignKey(OverInterval, on_delete=models.CASCADE)
     completed_at = models.DateTimeField()

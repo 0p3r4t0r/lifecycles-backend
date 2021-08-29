@@ -2,12 +2,12 @@
 
 ## Apps
 - [ ] Goals
-    - [ ] Permissions
-        - Simple way to restrict user actions to objects they own.
+    - [x] Permissions
+        - [x] Simple way to restrict user actions to objects they own.
     - [ ] REST API endpoints
-        - CRUD
-        - Mark as complete
-        - View history
+        - [x] CRUD for goals
+        - [ ] Mark as complete
+        - [ ] View history
 
 
 ## Infrastructure

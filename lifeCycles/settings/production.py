@@ -17,11 +17,11 @@ SECURE_SSL_REDIRECT = True
 # Database
 DATABASES = {
     'default': {
-        'ENGINE': os.environ['DEFAULT_SQL_ENGINE'],
-        'NAME': os.environ['DEFAULT_SQL_DATABASE'],
-        'USER': os.environ['DEFAULT_SQL_USER'],
-        'PASSWORD': os.environ['DEFAULT_SQL_PASSWORD'],
-        'HOST': os.environ['DEFAULT_SQL_HOST'],
-        'PORT': os.environ['DEFAULT_SQL_PORT'],
+        'ENGINE': os.environ['DEFAULT_DB_ENGINE'],
+        'NAME': os.environ['DEFAULT_DB_DATABASE'],
+        'USER': os.environ['DEFAULT_DB_USER'],
+        'PASSWORD': os.environ['DEFAULT_DB_PASSWORD'],
+        'HOST': os.environ['DEFAULT_DB_HOST'],
+        'PORT': os.environ['DEFAULT_DB_PORT'],
     }
 }

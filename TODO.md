@@ -12,3 +12,5 @@
 
 ## Infrastructure
 - [ ] Deploy with AWS Lightsail
+    - [ ] setup db
+    - [ ] connect django to db
